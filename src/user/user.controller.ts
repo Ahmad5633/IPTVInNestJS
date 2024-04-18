@@ -16,6 +16,11 @@ export class UserController {
         return this.userService.getAllUsers();
     }
 
+    @Get('email/:email')
+    async findUserByEmail(@Param('email') email: string): Promise<User | null> {
+        return this.userService.findUserByEmail(email);
+    }
+
     @Patch(':id')
     async updateUser(@Param('id') id: string, @Body() updateUserDto: Partial<User>): Promise<User> {
         return this.userService.updateUser(id, updateUserDto);
