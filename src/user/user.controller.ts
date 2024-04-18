@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Put, Delete, Patch } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.model';
 
@@ -16,7 +16,7 @@ export class UserController {
         return this.userService.getAllUsers();
     }
 
-    @Put(':id')
+    @Patch(':id')
     async updateUser(@Param('id') id: string, @Body() updateUserDto: Partial<User>): Promise<User> {
         return this.userService.updateUser(id, updateUserDto);
     }

@@ -3,16 +3,16 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class User {
-    @Prop()
-    firstName: string;
+    @Prop({required : true})
+    first_name: string;
 
-    @Prop()
-    lastName: string;
+    @Prop({required : true})
+    last_name: string;
 
-    @Prop()
+    @Prop({required : true})
     email: string;
 
-    @Prop()
+    @Prop({required : true})
     password: string;
 }
 
