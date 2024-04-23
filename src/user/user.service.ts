@@ -28,4 +28,7 @@ export class UserService {
     async getAllUsers(): Promise<User[]> {
         return this.userModel.find().exec();
     }
+    async updatePasswordByEmail(email: string, newPassword: string): Promise<void> {
+        await this.userModel.updateOne({ email }, { password: newPassword }).exec();
+    }
 }

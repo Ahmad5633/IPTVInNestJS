@@ -16,6 +16,6 @@ export class User {
     password: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const UserModel = SchemaFactory.createForClass(User);
 
 export type UserDocument = User & Document;
