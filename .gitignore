@@ -1,8 +1,9 @@
+env.ts
 # compiled output
 /dist
 /node_modules
 /build
-
+/env
 # Logs
 logs
 *.log
