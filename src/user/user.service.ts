@@ -2,13 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './user.model';
+import * as bcrypt from 'bcryptjs'; 
 
 @Injectable()
 export class UserService {
     constructor(@InjectModel(User.name) private readonly userModel: Model<UserDocument>) {}
 
     async createUser(user: User): Promise<User> {
-        const createdUser = new this.userModel(user);
+        const hashedPassword = await this.hashPassword(user.password);
+        const createdUser = new this.userModel({ ...user, password: hashedPassword });
         console.log(createdUser);
         return await createdUser.save();
     }
@@ -18,6 +20,9 @@ export class UserService {
     }
 
     async updateUser(id: string, updateUserDto: Partial<User>): Promise<User> {
+        if (updateUserDto.password) {
+            updateUserDto.password = await this.hashPassword(updateUserDto.password);
+        }
         return this.userModel.findByIdAndUpdate(id, updateUserDto, { new: true }).exec();
     }
 
@@ -28,7 +33,14 @@ export class UserService {
     async getAllUsers(): Promise<User[]> {
         return this.userModel.find().exec();
     }
+
     async updatePasswordByEmail(email: string, newPassword: string): Promise<void> {
-        await this.userModel.updateOne({ email }, { password: newPassword }).exec();
+        const hashedPassword = await this.hashPassword(newPassword);
+        await this.userModel.updateOne({ email }, { password: hashedPassword }).exec();
+    }
+
+    private async hashPassword(password: string): Promise<string> {
+        const saltRounds = 10; 
+        return bcrypt.hash(password, saltRounds);
     }
 }
