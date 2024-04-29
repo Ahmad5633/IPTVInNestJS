@@ -1,4 +1,4 @@
-
+// import WebSocket from 'ws';
 import * as WebSocket from 'ws';
 import { WebSocketAdapter, INestApplicationContext } from '@nestjs/common';
 import { MessageMappingProperties } from '@nestjs/websockets';
@@ -11,6 +11,7 @@ export class WsAdapter implements WebSocketAdapter {
   create(port: number, options: any = {}): any {
     return new WebSocket.Server({ port, ...options });
   }
+  
 
   bindClientConnect(server, callback: Function) {
     server.on('connection', callback);
