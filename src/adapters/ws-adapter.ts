@@ -44,8 +44,11 @@ export class WsAdapter implements WebSocketAdapter {
     }
     return process(messageHandler.callback(message.data));
   }
-
-  close(server) {
+  close(server: WebSocket.Server) {
     server.close();
   }
+  
+  // close(server) {
+  //   server.close();
+  // }
 }

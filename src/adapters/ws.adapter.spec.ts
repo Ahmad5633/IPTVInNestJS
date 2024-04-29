@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { WsAdapter } from './ws-adapter';
-import WebSocket from 'ws';
+import WebSocket = require('ws');
 
 describe('WsAdapter', () => {
   let app: TestingModule;
