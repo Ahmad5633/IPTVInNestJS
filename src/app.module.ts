@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { GenreModule } from  './genre/genre.module';
 import { SeriesModule } from  './series/series.module';
+import { GenreSeriesModule } from  './genreSeries/genreSeries.module';
 import { ForgetPasswordModule } from './resetPassword/forget-password.module';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
@@ -12,6 +13,7 @@ import { EventsModule } from './events/events.module';
         UserModule,
         GenreModule,
         SeriesModule,
+        GenreSeriesModule,
         ForgetPasswordModule,
         AuthModule,
         EventsModule
