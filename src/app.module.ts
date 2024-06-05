@@ -4,6 +4,7 @@ import { UserModule } from './user/user.module';
 import { GenreModule } from  './genre/genre.module';
 import { SeriesModule } from  './series/series.module';
 import { GenreSeriesModule } from  './genreSeries/genreSeries.module';
+import { StreamModule } from  './stream/stream.module';
 import { ForgetPasswordModule } from './resetPassword/forget-password.module';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
@@ -14,6 +15,7 @@ import { EventsModule } from './events/events.module';
         GenreModule,
         SeriesModule,
         GenreSeriesModule,
+        StreamModule,
         ForgetPasswordModule,
         AuthModule,
         EventsModule
