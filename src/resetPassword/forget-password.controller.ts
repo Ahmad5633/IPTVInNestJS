@@ -17,7 +17,6 @@ export class ForgetPasswordController {
     try {
       const retrievedOtp = await this.forgetPasswordService.retrieveOtp(body.email);
       if (retrievedOtp) {
-          // Use the OTP
           console.log("Retrieved OTP:", retrievedOtp);
       } else {
           console.log("No OTP found for the provided email.");
