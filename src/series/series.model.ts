@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-
+import * as mongoose from 'mongoose';
+import { File } from '../file/file.model';
 @Schema()
 export class Series {
     @Prop({required : true})
@@ -9,13 +10,19 @@ export class Series {
     @Prop({required : true})
     description: string;
 
-    @Prop({required : true})
-    trailer_id: string;
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'File' })
+    trailer_id: File;
 
-    @Prop({required : true})
-    thumbnail_id: string;
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'File' })
+    thumbnail_id: File;
+
 }
 
 export const SeriesModel = SchemaFactory.createForClass(Series);
 
 export type SeriesDocument = Series & Document;
+
+
+
+
+

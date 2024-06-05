@@ -7,6 +7,8 @@ import { GenreSeriesModule } from  './genreSeries/genreSeries.module';
 import { StreamModule } from  './stream/stream.module';
 import { EpisodeModule } from  './episode/episode.module';
 import { SeasonModule } from  './season/season.module';
+import { FileUploadModule } from './file/fileupload.module';
+import { FileModule } from './file/file.module';
 import { ForgetPasswordModule } from './resetPassword/forget-password.module';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
@@ -20,6 +22,8 @@ import { EventsModule } from './events/events.module';
         StreamModule,
         EpisodeModule,
         SeasonModule,
+        FileUploadModule,
+        FileModule,
         ForgetPasswordModule,
         AuthModule,
         EventsModule
