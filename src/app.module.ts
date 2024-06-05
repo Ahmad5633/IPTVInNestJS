@@ -5,6 +5,7 @@ import { GenreModule } from  './genre/genre.module';
 import { SeriesModule } from  './series/series.module';
 import { GenreSeriesModule } from  './genreSeries/genreSeries.module';
 import { StreamModule } from  './stream/stream.module';
+import { EpisodeModule } from  './episode/episode.module';
 import { ForgetPasswordModule } from './resetPassword/forget-password.module';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
@@ -16,6 +17,7 @@ import { EventsModule } from './events/events.module';
         SeriesModule,
         GenreSeriesModule,
         StreamModule,
+        EpisodeModule,
         ForgetPasswordModule,
         AuthModule,
         EventsModule
