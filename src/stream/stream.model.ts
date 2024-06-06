@@ -18,5 +18,4 @@ export class Stream extends Document {
 
 export const StreamModel = SchemaFactory.createForClass(Stream);
 
-
 export type StreamDocument = Stream & Document;

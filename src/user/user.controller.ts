@@ -31,8 +31,4 @@ export class UserController {
         return this.userService.deleteUser(id);
     }
     
-    // @Get(':id/streams')
-    // async getUserStreams(@Param('id') userId: string) {
-    //   return this.userService.getUserStreams(userId);
-    // }
 }

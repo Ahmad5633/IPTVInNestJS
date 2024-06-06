@@ -4,7 +4,6 @@ import { SeriesController } from './series.controller';
 import { SeriesService } from './series.service';
 import { Series, SeriesModel } from './series.model';
 import { ConfigModule } from '@nestjs/config';
-
 @Module({
     imports: [ConfigModule.forRoot(),
         MongooseModule.forFeature([{ name: Series.name, schema: SeriesModel }])],
