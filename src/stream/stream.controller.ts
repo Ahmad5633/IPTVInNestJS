@@ -1,7 +1,7 @@
 import { Controller, Post, Body, Get, Param, Delete, Patch } from '@nestjs/common';
 import { StreamService } from './stream.service';
 import { Stream } from './stream.model';
-
+import { User } from '../user/user.model';
 @Controller('streams')
 export class StreamController {
     constructor(private readonly streamService: StreamService) {}
@@ -34,5 +34,10 @@ export class StreamController {
   @Get('userId/:userId')
   async findByUserId(@Param('userId') userId: string): Promise<Stream[]> {
     return this.streamService.findByUserId(userId);
+    }
+
+    @Get(':streamId/user')
+    async findUserByStreamId(@Param('streamId') streamId: string): Promise<User> {
+      return this.streamService.findUserByStreamId(streamId);
     }
 }

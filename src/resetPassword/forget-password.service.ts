@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { EmailService } from './send-email.service';
-
 @Injectable()
 export class ForgetPasswordService {
     public otpMap: Map<string, string> = new Map();

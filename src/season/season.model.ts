@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 import * as mongoose from 'mongoose';
 import { Series } from '../series/series.model';
 
-@Schema()
+@Schema({ timestamps: true })
 export class Season {
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Series' })

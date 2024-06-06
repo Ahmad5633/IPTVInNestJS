@@ -1,7 +1,6 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { ForgetPasswordService } from './forget-password.service';
-
 @Injectable()
 export class UpdatePasswordService {
     constructor(

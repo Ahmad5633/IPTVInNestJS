@@ -33,5 +33,12 @@ export class EpisodeService {
 
     async findStreamsByEpisodeId(episodeId: string): Promise<Stream[]> {
         return this.streamModel.find({ episode_id: episodeId }).populate('episode_id').exec();
+    }
+
+    async findAllEpisodesBySeasonId(seasonId: string): Promise<Episode[]> {
+        return this.episodeModel.find({ seasonId }).populate('seasonId').exec();
       }
+
+      
+
 }
