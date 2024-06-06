@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import * as mongoose from 'mongoose';
 import { File } from '../file/file.model';
-@Schema()
+@Schema({ timestamps: true })
 export class Series {
     @Prop({required : true})
     name: string;
