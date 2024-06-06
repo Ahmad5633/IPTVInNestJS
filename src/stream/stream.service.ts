@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Stream, StreamDocument } from './stream.model';
-
+import { User } from '../user/user.model';
 @Injectable()
 export class StreamService {
     constructor(@InjectModel(Stream.name) private readonly streamModel: Model<StreamDocument>) {}
@@ -29,5 +29,10 @@ export class StreamService {
 
   async findByUserId(userId: string): Promise<Stream[]> {
     return this.streamModel.find({ userId }).populate('userId').exec();
+  }
+
+  async findUserByStreamId(streamId: string): Promise<User> {
+    const stream = await this.streamModel.findById(streamId).populate('user_id').exec();
+    return stream.user_id;
   }
 }
