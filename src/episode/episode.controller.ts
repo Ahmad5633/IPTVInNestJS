@@ -35,4 +35,10 @@ export class EpisodeController {
     async findStreamsByEpisodeId(@Param('episodeId') episodeId: string): Promise<Stream[]> {
       return this.episodeService.findStreamsByEpisodeId(episodeId.trim());
     }
+
+    @Get('season/:seasonId')
+    async findAllBySeasonId(@Param('seasonId') seasonId: string): Promise<Episode[]> {
+      return this.episodeService.findAllEpisodesBySeasonId(seasonId);
+    }
+
 }
