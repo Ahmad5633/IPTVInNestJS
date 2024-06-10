@@ -1,10 +1,9 @@
-import { Controller, Post, Body, Get, Param, Delete, Patch } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Delete, Patch,Query } from '@nestjs/common';
 import { GenreService } from './genre.service';
 import { Genre } from './genre.model';
-
 @Controller('genres')
 export class GenreController {
-    constructor(private readonly genreService: GenreService) {}
+    constructor(private readonly genreService: GenreService,) {}
 
     @Post()
     async createGenre(@Body() genre: Genre): Promise<Genre> {
@@ -29,5 +28,9 @@ export class GenreController {
     @Delete(':id')
     async deleteGenre(@Param('id') id: string): Promise<Genre> {
         return this.genreService.deleteGenre(id);
+    }
+    @Get('details/:genre')
+    async getSeriesDetails(@Param('genre') genre: string) {
+      return this.genreService.getSeriesWithDetailsByGenre(genre);
     }
 }

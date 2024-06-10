@@ -30,4 +30,5 @@ export class SeriesController {
     async deleteSeriees(@Param('id') id: string): Promise<Series> {
         return this.seriesService.deleteSeries(id);
     }
+
 }

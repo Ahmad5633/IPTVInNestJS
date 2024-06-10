@@ -36,9 +36,6 @@ export class EpisodeService {
     }
 
     async findAllEpisodesBySeasonId(seasonId: string): Promise<Episode[]> {
-        return this.episodeModel.find({ seasonId }).populate('seasonId').exec();
+        return this.episodeModel.find({ season_id:seasonId }).exec();
       }
-
-      
-
 }
