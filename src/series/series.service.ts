@@ -26,4 +26,16 @@ export class SeriesService {
     async getAllSeries(): Promise<Series[]> {
         return this.seriesModel.find().exec();
     }
+
+    // async getAllData():Promise<Series[]> {
+    //     this.seriesModel.aggregate(){
+    //         $match{
+    //         }
+    //     }
+       
+    //     return this.seriesModel.find({ser})
+    //     return this.streamModel.find({ episode_id: episodeId }).populate('episode_id').exec();
+    // }
+
+    
 }
